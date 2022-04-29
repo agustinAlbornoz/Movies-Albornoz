@@ -1,4 +1,5 @@
 import React from 'react'
+import MyComponent from '../StarsRating/StarsRating';
 
 
 const Card = ({ texto, color, parrafo, imagen}) => {
@@ -10,7 +11,7 @@ const Card = ({ texto, color, parrafo, imagen}) => {
                 <h5 className="card-title">{texto}</h5>
                 <p className="card-text">{parrafo}</p>
                 <a href="#" className="btn btn-warning">Agregalo a favoritos</a>
-                
+                <MyComponent/>
             </div>
         </div>
 
