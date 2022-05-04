@@ -1,5 +1,6 @@
 import React from 'react'
-import MyComponent from '../StarsRating/StarsRating';
+import MyComponent from '../StarsRating/ItemCount';
+
 
 
 const Card = ({ texto, color, parrafo, imagen}) => {
