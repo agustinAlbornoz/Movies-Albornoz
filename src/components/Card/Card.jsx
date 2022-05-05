@@ -5,8 +5,8 @@ import MyComponent from '../StarsRating/ItemCount';
 
 const Card = ({ texto, color, parrafo, imagen}) => {
     return (
-
-        <div className={`card bg-${color}`} style={{ width: "18rem" }}>
+    <div className="d-flex col-md-4 justify-content-center">
+        <div className={`card bg-${color}`} style={{ width: "18rem", margin: "30px" }}>
             <img className="card-img-top" src={imagen} alt="Card image cap" />
             <div className="card-body">
                 <h5 className="card-title">{texto}</h5>
@@ -15,6 +15,8 @@ const Card = ({ texto, color, parrafo, imagen}) => {
                 <MyComponent/>
             </div>
         </div>
+    </div>
+    
 
     )
 }

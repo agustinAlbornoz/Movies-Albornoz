@@ -1,6 +1,6 @@
 import React from 'react';
 import CartWidget from './CartWidget';
-import ItemListContainer from './ItemListContainer';
+import CartNumber from './CartNumber';
 
 export default function Navbar() {
     return (
@@ -44,9 +44,9 @@ export default function Navbar() {
                         <button className="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-                    <ItemListContainer cartNumber={3} >
+                    <CartNumber cartNumber={3} >
                         <CartWidget/>
-                    </ItemListContainer>
+                    </CartNumber>
             </div>
 
         </nav>
