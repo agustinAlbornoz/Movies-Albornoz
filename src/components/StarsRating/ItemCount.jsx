@@ -4,7 +4,7 @@ import { Rating } from 'react-simple-star-rating'
 export default function MyComponent() {
   const [rating, setRating] = useState(0)
 
-  const handleRating = (rate: number) => {
+  const handleRating = (rate: Number) => {
     setRating(rate)
   }
   function sumar(params){
@@ -21,10 +21,10 @@ function restar(params){
 
   return (
     <div className='App'>
-      <button onClick={restar}>restar estrella</button>
+      <button onClick={restar}>-</button>
       <Rating onClick={handleRating} ratingValue={rating} />
-        <h1>Contador es: {rating}</h1>
-          <button onClick={sumar}>sumar estrella</button>
+        <h1>accountant: {rating}</h1>
+          <button onClick={sumar}>+</button>
     </div>
   )
 }

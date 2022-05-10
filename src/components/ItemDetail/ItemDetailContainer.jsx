@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail';
 import ItemDetailCard from './ItemDetailCard'
 
 

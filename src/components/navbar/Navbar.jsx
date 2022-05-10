@@ -1,6 +1,7 @@
 import React from 'react';
 import CartWidget from './CartWidget';
 import CartNumber from './CartNumber';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return (
@@ -23,16 +24,23 @@ export default function Navbar() {
                                 Generos
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Accion</a></li>
-                                <li><a className="dropdown-item" href="#">Aventuras</a></li>
-                                <li><a className="dropdown-item" href="#">Ciencia Ficcion</a></li>
-                                <li><a className="dropdown-item" href="#">Comedia</a></li>
-                                <li><a className="dropdown-item" href="#">No-Ficcion</a></li>
-                                <li><a className="dropdown-item" href="#">Drama</a></li>
-                                <li><a className="dropdown-item" href="#">Fantasia</a></li>
-                                <li><a className="dropdown-item" href="#">Musical</a></li>
-                                <li><a className="dropdown-item" href="#">Suspenso</a></li>
-                                <li><a className="dropdown-item" href="#">Terror</a></li>
+                                <li><Link to={`/category/28`} className="btn btn-warning">Action</Link></li>
+                                <li><Link to={`/category/12}`} className="btn btn-warning">Adventure</Link></li>
+                                <li><Link to={`/category/16`} className="btn btn-warning">Animation</Link></li>
+                                <li><Link to={`/category/35`} className="btn btn-warning">Comedy</Link></li>
+                                <li><Link to={`/category/80`} className="btn btn-warning">Crime</Link></li>
+                                <li><Link to={`/category/99`} className="btn btn-warning">Documentary</Link></li>
+                                <li><Link to={`/category/18`} className="btn btn-warning">Drama</Link></li>
+                                <li><Link to={`/category/14`} className="btn btn-warning">Fantasy</Link></li>
+                                <li><Link to={`/category/36`} className="btn btn-warning">History</Link></li>
+                                <li><Link to={`/category/27`} className="btn btn-warning">Horror</Link></li>
+                                <li><Link to={`/category/10402`} className="btn btn-warning">Music</Link></li>
+                                <li><Link to={`/category/9648`} className="btn btn-warning">Mystery</Link></li>
+                                <li><Link to={`/category/10749`} className="btn btn-warning">Romance</Link></li>
+                                <li><Link to={`/category/878`} className="btn btn-warning">Science Fiction</Link></li>
+                                <li><Link to={`/category/53`} className="btn btn-warning">Thriller</Link></li>
+                                <li><Link to={`/category/10752`} className="btn btn-warning">War</Link></li>
+                                <li><Link to={`/category/37`} className="btn btn-warning">Western</Link></li>
                             </ul>
                         </li>
                         <li>

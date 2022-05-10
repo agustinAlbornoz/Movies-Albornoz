@@ -1,5 +1,5 @@
 import React from 'react'
-
+import MyComponent from '../StarsRating/ItemCount';
 
 
 const ItemDetailCard = ({movie}) => {
@@ -11,9 +11,9 @@ const ItemDetailCard = ({movie}) => {
 
       
       <div className="container" >
-          <div className="row">
+       
               <div className="col-12-md" > 
-          <div className={`card bg-${color}`} style={{ width: "20rem", margin: "30px" }}>
+          <div className={`card bg-${color}`} style={{ width: "30%", margin: "40px" }}>
               <img className="card-img-top" src={`${imagePath}${poster_path}`} alt={title} />
               <div className="card-body">
                   <h5 className="card-title">{title}</h5>
@@ -21,13 +21,13 @@ const ItemDetailCard = ({movie}) => {
                   <h6>{`popularity:${popularity} likes`}</h6>
                   <h6>{`revenue: $${revenue}`}</h6>
                   <p className="card-text">{overview}</p>
-                    
+                    <MyComponent/>
 
               </div>
           </div>
       </div>
       </div>
-      </div>
+     
       
       </>
   )
