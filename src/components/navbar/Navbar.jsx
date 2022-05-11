@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-md navbar-light  border-bottom">
             <div className="container">
-                <a className="navbar-brand" href="index.html">WAZOWSKI</a>
+                <a className="navbar-brand" href="/">WAZOWSKI</a>
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
                     <span className="navbar-toggler-icon"></span>
                 </button>

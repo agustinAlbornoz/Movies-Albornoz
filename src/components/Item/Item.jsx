@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const Item = ({ movies }) => {
     const imagePath = "https://image.tmdb.org/t/p/w500/"
     const { id, title, poster_path } = movies
 
     return (
         <>
-            <div className="container" classId="itemCard">
+            <div className="itemCard" classID="itemCard">
                 <div className="row">
                     <div className="col-12-md" >
                         <div className={`card bg-white`} style={{ width: "20rem", margin: "30px" }}>

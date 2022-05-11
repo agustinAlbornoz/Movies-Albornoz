@@ -10,7 +10,7 @@ const ItemDetailCard = ({movie}) => {
       <>
 
       
-      <div className="container" >
+      <div className="detailCard" >
        
               <div className="col-12-md" > 
           <div className={`card bg-${color}`} style={{ width: "30%", margin: "40px" }}>

@@ -31,7 +31,7 @@ const CarrouselContainer = () => {
 
     return (
         <>
-            <div>
+            <div className="carrouselContainer">
                 <Carrousel movieCarrousel={MovieCarrousel} />
             </div>
         </>
