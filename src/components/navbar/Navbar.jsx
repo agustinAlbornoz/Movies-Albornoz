@@ -25,7 +25,7 @@ export default function Navbar() {
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><Link to={`/category/28`} className="btn btn-warning">Action</Link></li>
-                                <li><Link to={`/category/12}`} className="btn btn-warning">Adventure</Link></li>
+                                <li><Link to={`/category/12`} className="btn btn-warning">Adventure</Link></li>
                                 <li><Link to={`/category/16`} className="btn btn-warning">Animation</Link></li>
                                 <li><Link to={`/category/35`} className="btn btn-warning">Comedy</Link></li>
                                 <li><Link to={`/category/80`} className="btn btn-warning">Crime</Link></li>

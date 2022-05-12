@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 import ItemList from './ItemList';
 import CarrouselMap from '../Carrousel/CarrouselMap';
+import {Data} from '../Data/Data'
 
-const APIKEY = '?api_key=42d2a6b85cd4c53cbb4885549949f805';
 
 
 const ItemListContainer = () => {
     const [Movies, setMovies] = useState([])
-    const getMovie = async () => {
-
-        const result = await axios.get('https://api.themoviedb.org/3/discover/movie' + APIKEY)
-
-        setMovies(result.data.results)
-    }
     useEffect(() => {
+        const data = Data.map((prod) => prod)
         const promesa = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(getMovie)
+                resolve(data)
             }, 2000);
         })
         promesa.then((res) => {
@@ -28,7 +22,7 @@ const ItemListContainer = () => {
 
         }
     }, [])
-
+    
     return (
         <>
             <div>

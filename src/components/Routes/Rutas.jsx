@@ -4,6 +4,7 @@ import ItemDetailContainer from "../ItemDetail/ItemDetailContainer"
 import Layout from "../Layout/Layout"
 import Error from "../Error/Error"
 import SearchCategory from "../Category/SearchCategory"
+import Cart from "../Cart/Cart"
 
 
 const Rutas = () => {
@@ -15,6 +16,7 @@ const Rutas = () => {
                         <Route index element={<ItemListContainer />}/>
                         <Route path="/movies/:id" element={<ItemDetailContainer />}/>
                         <Route path="/category/:id" element={<SearchCategory />}/>
+                        <Route path="/cart" element={<Cart />}/>
                     </Route>
 
                         <Route path="*" element={<Error/>}/>
