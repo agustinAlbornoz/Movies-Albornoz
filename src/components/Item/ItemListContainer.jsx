@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import CarrouselMap from '../Carrousel/CarrouselMap';
-import {Data} from '../Data/Data'
+import { Data } from '../Data/Data'
 
 
 

@@ -5,10 +5,9 @@ const Carrousel = ({ moviesCarrousel }) => {
     const imagePath = "https://image.tmdb.org/t/p/w500/"
     
     const movies = moviesCarrousel.slice(0, 3)
-    console.log(movies);
+    
     return (
         <>
-           
             {(movies.map((movie, index) => (
 
                 <div class={`carousel-item ${index === 0 && 'active'}`} key={index}>
@@ -17,9 +16,7 @@ const Carrousel = ({ moviesCarrousel }) => {
                         <h5>{movie.title}</h5>
                     </div>
                 </div>
-
             )
-
             ))}
 
         </>

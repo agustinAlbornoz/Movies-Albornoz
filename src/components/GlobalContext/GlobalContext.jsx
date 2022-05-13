@@ -6,7 +6,7 @@ const GlobalProvider = ({children}) => {
 const [carrito, setCarrito] = useState([])
 const addToCard = (producto) => {
 
-    setCarrito([...carrito,producto])
+    setCarrito([carrito,producto])
 }
 const clear = () => setCarrito([])
 

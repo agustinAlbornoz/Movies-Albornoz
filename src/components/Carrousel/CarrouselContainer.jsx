@@ -5,18 +5,13 @@ import {Data} from '../Data/Data'
 import Carrousel from './Carrousel';
 
 
-const CarrouselContainer = () => {
+const CarrouselContainer = ({movieCarrousel}) => {
     const [MovieCarrousel, setMovies] = useState([])
-    const getMovie = async () => {
 
-        const result = await axios.get({Data})
-
-        setMovies(result.data.results)
-    }
     useEffect(() => {
         const promesa = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(getMovie)
+                resolve(Data)
             }, );
         })
         promesa.then((res) => {

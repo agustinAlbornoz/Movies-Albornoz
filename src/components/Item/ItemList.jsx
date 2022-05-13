@@ -5,7 +5,7 @@ const ItemList = ({ movies }) => {
     return (
         <>
             <div>
-                {movies.length > 0 ? (movies.map((movies) => (<Item key={movies.id} movies={movies}/>)
+            {movies.length > 0 ? (movies.map((movies) => (<Item key={movies.id} movies={movies}/>)
                     ))
                     :
                     (
