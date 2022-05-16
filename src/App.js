@@ -1,7 +1,6 @@
 import Rutas from './components/Routes/Rutas';
 import './App.css';
-
-
+import GlobalProvider from './components/GlobalContext/GlobalContext'
 
 
 
@@ -11,9 +10,9 @@ import './App.css';
 function App() {
   return (
       <>  
-      
+      <GlobalProvider>
       <Rutas/>
-      
+      </GlobalProvider>
       </>
   
   );

@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from '../Loader/Loader'
 import Carrousel from './Carrousel'
 
 const CarrouselMap = ({ moviesCarrousel }) => {
@@ -17,7 +18,7 @@ const CarrouselMap = ({ moviesCarrousel }) => {
 
                     :
                     (
-                        <h1>Cargando...</h1>
+                        <h1><Loader/></h1>
                     )
                 }
             

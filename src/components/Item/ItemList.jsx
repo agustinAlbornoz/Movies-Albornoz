@@ -1,7 +1,10 @@
 import React from 'react'
+import Loader from '../Loader/Loader';
 import Item from './Item'
 
 const ItemList = ({ movies }) => {
+    
+    
     return (
         <>
             <div>
@@ -9,7 +12,7 @@ const ItemList = ({ movies }) => {
                     ))
                     :
                     (
-                        <h1>Cargando...</h1>
+                        <h1><Loader/></h1>
                     )
                 }
             </div>

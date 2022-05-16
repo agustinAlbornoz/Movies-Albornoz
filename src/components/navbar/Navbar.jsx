@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import CartWidget from './CartWidget';
 import CartNumber from './CartNumber';
 import { Link } from 'react-router-dom';
+import { GlobalContext } from '../GlobalContext/GlobalContext';
 
 export default function Navbar() {
+    const {cantidadComprada} = useContext(GlobalContext)
     return (
         <nav className="navbar navbar-expand-md navbar-light  border-bottom">
             <div className="container">
@@ -52,7 +54,7 @@ export default function Navbar() {
                         <button className="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-                    <CartNumber cartNumber={3} >
+                    <CartNumber cartNumber={cantidadComprada} >
                         <CartWidget/>
                     </CartNumber>
             </div>

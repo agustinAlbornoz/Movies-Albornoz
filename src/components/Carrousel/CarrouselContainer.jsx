@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 import {Data} from '../Data/Data'
 import Carrousel from './Carrousel';
 
 
-const CarrouselContainer = ({movieCarrousel}) => {
+const CarrouselContainer = () => {
     const [MovieCarrousel, setMovies] = useState([])
 
     useEffect(() => {
