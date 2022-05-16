@@ -9,7 +9,7 @@ const Cart = () => {
         
           { carrito.length  > 0 ?  carrito.map((item, index) => { 
           return(
-            <div>
+            <div className="cartCard">
             <h2>{item.title}</h2>
               <img src={item.poster_path} alt={item.title} />
               <h4>Cantidad:{item.cantidad}</h4>
