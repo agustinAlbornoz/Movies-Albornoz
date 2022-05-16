@@ -36,7 +36,7 @@ const ItemDetailCard = ({ movie }) => {
     }
     return (
         <>
-
+        <div className="itemDetailCard">
             <div className=" d-md-flex align-items-center gap-5" >
                     <div>
                     <img className="" src={`${imagePath}${poster_path}`} alt={title} />
@@ -62,7 +62,7 @@ const ItemDetailCard = ({ movie }) => {
 
                     
 
-                   
+                    </div>
                 </div>
 
 
