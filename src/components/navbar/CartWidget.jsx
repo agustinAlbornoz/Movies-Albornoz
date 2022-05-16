@@ -1,10 +1,12 @@
 import React from 'react';
 import { BsBookmarkFill } from 'react-icons/bs';
 import { BsFillBasket3Fill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 const CartWidget = () => {
     return (
         <div>
-        <BsFillBasket3Fill />
+            
+        <Link to={'/cart'}><BsFillBasket3Fill /></Link>
         <BsBookmarkFill />
         
         </div>

@@ -15,7 +15,7 @@ const ItemCount = ({manejarClick, stock}) => {
   }
   return (
     <>
-    <Link to="" onClick={() => manejarClick(cantidad)}  className="btn btn-success w-100 text-light">Añadir a la cesta</Link>
+    <Link to="" onClick={() => manejarClick(cantidad)}  className="btn btn-success w-100 text-light">Añadir al carrito</Link>
     <div className="d-md-flex text-center gap-5 align-items-center">
     <button className="btn btn-success mt-3"onClick={restar}>restar</button>
     <h1 className="mt-3"> comprar {cantidad}</h1>
