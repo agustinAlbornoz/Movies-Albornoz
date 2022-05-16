@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 
-color:white; }
+ }
 
 .itemListContainer{
     background-color:black;
@@ -16,6 +16,7 @@ color:white; }
 }
 
 .card-title{
+    color:white;
     background-color:black;
     text-align: center;
     font-size: 150%;
@@ -27,8 +28,10 @@ color:white; }
     
 }
 .itemDetailCard{
+    color:white;
     background-color:black;
 }
 .cartCard{
+    color:white;
     background-color:Black;
 }
