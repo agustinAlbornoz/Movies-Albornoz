@@ -52,7 +52,7 @@ const ItemDetailCard = ({ movie }) => {
                             <Link to={'/cart'} onClick={() => addToCard(itemCart)} >terminar Compra</Link>
                         ) : (
 
-                            <ItemCount manejarClick={cantidadParaAgregar} stock={movie.stock} />
+                            <ItemCount manejarClick={cantidadParaAgregar} stock={stock-1} />
 
                         )
 

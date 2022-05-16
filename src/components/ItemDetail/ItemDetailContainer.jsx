@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <div>
+            <div className="detailContainer">
                 <ItemDetailCard movie={Movie}/>
             </div>
         </>

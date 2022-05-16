@@ -8,16 +8,17 @@ const Item = ({ movies }) => {
 
     return (
         <>
-            <div className="itemCard" classID="itemCard">
+            <div className="itemCard " classID="itemCard" >
                 <div className="row">
                     <div className="col-12-md" >
-                        <div className={`card bg-white`} style={{ width: "20rem", margin: "30px" }}>
+                        <div className={`card bg-black`} style={{ width: "20rem", margin: "30px" }}>
                             <img className="card-img-top" src={`${imagePath}${poster_path}`} alt={title} />
                             <div className="card-body">
                                 <h5 className="card-title">{title}</h5>
+                                <div className="verMas">
                                 <Link to={`/movies/${id}`} className="btn btn-warning">Ver mas</Link>
-                                <button>fav</button>
-                                <button>add WachList</button>
+                                </div>
+                               
 
                             </div>
                         </div>

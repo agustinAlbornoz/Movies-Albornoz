@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const ItemCount = ({manejarClick, stock}) => {
 
 
-  const [cantidad, setCantidad] = useState(1);
+  const [cantidad, setCantidad] = useState(0);
 
   function sumar(params){
       cantidad <= stock ? setCantidad(cantidad + 1) : setCantidad(cantidad)
   }
   function restar(params){
-      cantidad > 1 ? setCantidad (cantidad - 1) : setCantidad(cantidad)
+      cantidad >= 1 ? setCantidad (cantidad - 1) : setCantidad(cantidad)
   }
   return (
     <>

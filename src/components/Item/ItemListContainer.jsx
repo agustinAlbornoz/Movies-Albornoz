@@ -25,7 +25,7 @@ const ItemListContainer = () => {
     
     return (
         <>
-            <div>
+            <div className="itemListContainer">
                 <CarrouselMap moviesCarrousel={Movies} />
                 <ItemList movies={Movies} />
             </div>

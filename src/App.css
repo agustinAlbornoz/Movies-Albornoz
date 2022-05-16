@@ -1,11 +1,28 @@
 * {
     margin: 0;
-    padding: 0; }
+    padding: 0;
 
+color:white; }
 
+.itemListContainer{
+    background-color:black;
+}
 .itemCard{
+    background-color:black;
     display:inline-block;
-    margin-right: 1fr;
+    padding-left: 10%;
+
 
 }
 
+.card-title{
+    background-color:black;
+    text-align: center;
+    font-size: 150%;
+    font-family:'Koulen', cursive;
+}
+
+.verMas{
+    text-align: center;
+    
+}
