@@ -6,7 +6,9 @@ const Cart = () => {
   const { carrito, deleteMovie, cartDeleteAll,total } = useContext(GlobalContext)
   
   return (
-    <><h1>El total de tu compra es de total price: {total}</h1>
+    <>
+    {carrito.length > 0 ? <h1>El total de tu compra es de total price: {total} y tenes un total de {carrito.length} productos</h1> : <h1>No hay productos</h1>}
+
       {carrito.length > 0 ? carrito.map((item, index) => {
         return (
           <>
@@ -37,6 +39,7 @@ const Cart = () => {
 
         :
         <div className="cartEmpty">
+        
         <h1>carrito esta vacio</h1>
         <h1>Si desea comenzar compra<Link to={'/'}> Click aqui</Link> </h1>
         </div>}
