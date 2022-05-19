@@ -3,12 +3,12 @@ import Loader from '../Loader/Loader';
 import Item from './Item'
 
 const ItemList = ({ movies }) => {
-    
+    console.log(movies)
     
     return (
         <>
             <div>
-            {movies.length > 0 ? (movies.map((movies) => (<Item key={movies.id} movies={movies}/>)
+            {movies.length > 0 ? (movies.map((movies) => (<Item key={movies.id} movies={movies}/>) 
                     ))
                     :
                     (

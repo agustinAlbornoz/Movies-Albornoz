@@ -1,36 +1,31 @@
+import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { db } from '../../service/firebase';
 import ItemList from '../Item/ItemList';
-import {Data} from '../Data/Data'
+
 
 
 
 
 const SearchCategory = () => {
-    const {category} = useParams();
+    const {id} = useParams();
         const [Movies, setMovies] = useState([])
-        
-    
+        console.log(id)
+        const getData = async () => {
+            const col = collection(db,'Movies')
+            try{
+            const data = await getDocs(col)
+            const result = data.docs.map(doc => doc = {id:doc.id, ...doc.data()})
+            const searchMovie = result.find(Movies => Movies.genre == `${id}` )
+            setMovies(searchMovie)
+        }catch(err){
+            console.log(err)
+        }
+        }
         useEffect(() => {
-            const promesa = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    let dataFilter = Data
-                    if(Data.genre_ids === category){
-                        dataFilter = Data.filter((curso => curso.genre_ids === 16 )) //HACER UNO DE CADA
-                    }
-                    resolve(dataFilter)
-                }, 2000);
-                
-            })
-            promesa.then((res) => {
-                setMovies(res)
-            })
-    
-            return () => {
-    
-            }
+            getData()
         }, [])
-        
     return (
         <>
             <div>

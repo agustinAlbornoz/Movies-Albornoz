@@ -1,59 +1,70 @@
 import Swal from 'sweetalert2'
-import React, { createContext, useState, useEffect} from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 export const GlobalContext = createContext('')
 
 
-const GlobalProvider = ({children}) => {
+const GlobalProvider = ({ children }) => {
 
-const [carrito, setCarrito] = useState([])
+    const [carrito, setCarrito] = useState([])
 
-useEffect(() => {
+    useEffect(() => {
 
-    const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito')) ?? []
+        const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito')) ?? []
 
-    setCarrito(carritoLocalStorage)
+        setCarrito(carritoLocalStorage)
 
-}, [])
+    }, [])
 
-useEffect(() => {
+    useEffect(() => {
 
-    localStorage.setItem('carrito',JSON.stringify(carrito))
+        localStorage.setItem('carrito', JSON.stringify(carrito))
 
-}, [carrito])
+    }, [carrito])
+
+
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        const calculoTotal = carrito.reduce(
+            (total, producto) => total + producto.cantidad * producto.price,
+            0
+        )
+        setTotal(calculoTotal)
+
+    }, [carrito])
+    console.log(total)
+
+    console.log(carrito)
+    const addToCard = (movie) => {
+        if (carrito.some(movieSnipe => movieSnipe.id === movie.id)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'error',
+                text: `ya agregaste ${movie.title} a tu carrito`
+            })
+        } else {
+
+            setCarrito([...carrito, movie])
+        }
+    }
+
+    const deleteMovie = (id) => {
+        const movieDelete = carrito.filter(movie => movie.id !== id)
+        setCarrito(movieDelete)
+    }
+
+    const cartDeleteAll = () => {
+        setCarrito([])
+
+    }
 
 
 
-console.log(carrito)
-const addToCard = (movie) => {
-    if(carrito.some(movieSnipe => movieSnipe.id === movie.id)){
-        Swal.fire({
-            icon: 'error',
-            title: 'error',
-            text: `ya agregaste ${movie.title} a tu carrito`})
-    } else{
-    
-    setCarrito([...carrito,movie])
-}
-}
-
-const deleteMovie = (id) => {
-    const movieDelete = carrito.filter ( movie => movie.id !== id)
-    setCantidadComprada(0)
-    setCarrito(movieDelete)
-}
-
-const cartDeleteAll = () =>{
-    setCarrito([])
-    setCantidadComprada(0)
-}
-
-const [cantidadComprada, setCantidadComprada] = useState(0)
-
-return(
-    <GlobalContext.Provider value= {{carrito, cantidadComprada, setCantidadComprada, addToCard, deleteMovie, cartDeleteAll}}>
-        {children}
-    </GlobalContext.Provider>
-)
+    return (
+        <GlobalContext.Provider value={{ total,carrito, addToCard, deleteMovie, cartDeleteAll }}>
+            {children}
+        </GlobalContext.Provider>
+    )
 }
 
 

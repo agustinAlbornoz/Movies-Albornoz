@@ -1,36 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetailCard from './ItemDetailCard'
-import {Data} from '../Data/Data'
+import { collection, docs, getDocs } from "firebase/firestore"
+import { db } from '../../service/firebase';
+
 
 
 const ItemDetailContainer = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [Movie, setMovie] = useState([])
-    const filter = Data.find((prod) => prod.id === Number(id))
 
+    const getData = async () => {
 
-    useEffect(() => {
-        const promesa = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(filter)
-            }, 2000);
-        })
-        promesa.then((res) => {
-            setMovie(res)
-        })
+        const col = collection(db, 'Movies')
+        try {
 
-        return () => {
+            const data = await getDocs(col)
+            const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
+            const searchMovie = result.find(Movies => Movies.id === `${id}`)
+            setMovie(searchMovie)
 
+        } catch (err) {
+
+            console.log(err)
         }
-    }, [])
+    }
+    useEffect(() => {
 
+        getData()
+    }, [])
 
     return (
         <>
             <div className="detailContainer">
-                <ItemDetailCard movie={Movie}/>
+                <ItemDetailCard movie={Movie} />
             </div>
         </>
     )

@@ -34,4 +34,13 @@
 .cartCard{
     color:white;
     background-color:Black;
+    height: 400px;
+    width: 50%
+    
+}
+.cartCard img{
+    height: 400px;
+    width: auto;
+    
+
 }

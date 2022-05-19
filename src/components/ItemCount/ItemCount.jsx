@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Data} from '../Data/Data'
+
 import { Link } from 'react-router-dom';
 
 const ItemCount = ({manejarClick, stock}) => {
