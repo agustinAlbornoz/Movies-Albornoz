@@ -11,7 +11,7 @@ const firebaseConfig = {
     storageBucket: "wazowski-movies.appspot.com",
     messagingSenderId: "633511946",
     appId: "1:633511946:web:b6322c6e75ef59f5a8bff3"
-  };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

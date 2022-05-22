@@ -7,12 +7,11 @@ import { GlobalContext } from '../GlobalContext/GlobalContext';
 
 const ItemDetailCard = ({ movie }) => {
     console.log(movie)
-    const { title, color, overview, poster_path, runtime, price, revenue, stock, id } = movie
+    const { title, overview, poster_path, price, genre, stock, id,backdrop_path,release_date } = movie
 
-    
 
     useEffect(() => {
-        setState({ title, color, overview, poster_path, runtime, price, revenue, stock })
+        setState({ title, overview, poster_path, price, genre, stock,id,backdrop_path,release_date })
 
     }, [title])
 
@@ -34,36 +33,46 @@ const ItemDetailCard = ({ movie }) => {
         title: title,
         poster_path: poster_path,
         cantidad: cantidadComprada,
-        price: price
+        price: price,
+        release_date: release_date,
+        backdrop_path: backdrop_path,
+
     }
     return (
-        <>
-        <div className="itemDetailCard">
+        <>              
+        <div className="itemDetailCard" style={{backgroundImage:`url(${backdrop_path})`,backgroundRepeat: "no-repeat", backgroundAttachment: "fixed",backgroundSize: "cover"}}>
             <div className=" d-md-flex align-items-center gap-5" >
-                    <div>
-                    <img className="" src={`${poster_path}`} alt={title} />
-                    </div>
-                    <div>
-                        <h5 className="">{title}</h5>
-                        <h6>{`duration:${runtime} sec`}</h6>
-                        <h6>{`price:$${price} `}</h6>
-                        <h6>{`revenue: $${revenue}`}</h6>
-                        <h6>{`stock: ${stock}`}</h6>
+                    
+                    
+                    <img src={`${poster_path}`} alt={title} />
+                    
+                    
+                    <div className="contentDetail">
+                        <div>
+                        <h5>{title}</h5>
+                        <h6>{`Fecha de estreno: ${release_date}`}</h6>
+                        <h6>{`Precio:$${price} `}</h6>
+                        <h6>{`Genero: ${genre}`}</h6>
+                        <h6>{`Stock: ${stock}`}</h6>
                         <p className="">{overview}</p>
                         {cantidadComprada > 0  ? (
                             <>
-                            <Link to={'/cart'} onClick={() => addToCard(itemCart)} >terminar Compra</Link>
-                            <Link to={'/'}>Seguir Comprando</Link>
+                            <div className="buttonsDetailCard">
+                            <Link to={'/cart'} onClick={() => addToCard(itemCart)} ><p className="btn btn-danger">Terminar Compra</p></Link>
+                            <Link to={'/'}><p className="btn btn-success">Seguir Comprando</p></Link>
+                            </div>
+                            
                             </>
                         ) : (
-
+                            <div className="itemCount">
                             <ItemCount manejarClick={cantidadParaAgregar} stock={stock-1} />
+                            </div>
 
                         )
 
                         }
                     </div>
-
+                    </div>
 
                     
 
