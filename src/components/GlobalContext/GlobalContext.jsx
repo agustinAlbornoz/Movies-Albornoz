@@ -32,9 +32,6 @@ const GlobalProvider = ({ children }) => {
         setTotal(calculoTotal)
 
     }, [carrito])
-    console.log(total)
-
-    console.log(carrito)
     const addToCard = (movie) => {
         if (carrito.some(movieSnipe => movieSnipe.id === movie.id)) {
             Swal.fire({
@@ -43,10 +40,22 @@ const GlobalProvider = ({ children }) => {
                 text: `ya agregaste ${movie.title} a tu carrito`
             })
         } else {
-
             setCarrito([...carrito, movie])
         }
     }
+    const trailer = (movie) => {
+            Swal.fire({
+                title: `${movie.title}`,
+                html:
+                    `<iframe width="1280" height="720" src=${movie.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+                showCloseButton: true,
+                confirmButtonText: 'Cerrar',
+                width: '80%',
+                showCancelButton: false,
+                focusConfirm: false,
+            })
+        }
+
 
     const deleteMovie = (id) => {
         const movieDelete = carrito.filter(movie => movie.id !== id)
@@ -61,7 +70,7 @@ const GlobalProvider = ({ children }) => {
 
 
     return (
-        <GlobalContext.Provider value={{ total,carrito, addToCard, deleteMovie, cartDeleteAll }}>
+        <GlobalContext.Provider value={{ total, carrito, addToCard, deleteMovie, cartDeleteAll,trailer }}>
             {children}
         </GlobalContext.Provider>
     )

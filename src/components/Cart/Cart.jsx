@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <div style={{ backgroundColor: 'black' }}>
       <>
-        {carrito.length > 0 ? <h1>El total de tu compra es de total price: {total} y tenes un total de {carrito.length} productos{carrito.title}</h1> : <h1>No hay productos</h1>}
+        {carrito.length > 0 ? <h1>El total de tu compra es de total price: {total} y tenes un total de {carrito.length} productos</h1> : <h1>No hay productos</h1>}
 
 
         {carrito.length > 0 ? carrito.map((item, index) => {
