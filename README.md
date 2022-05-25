@@ -8,4 +8,5 @@ Pagina web creada por Agustín Albornoz.
 
 
 Para chequear el progreso de este proyecto que finalizara el dia 28-5-2022:
-https://movies-proyecto-final-react.vercel.app/
+
+Deploy: https://movies-proyecto-final-react.vercel.app/
