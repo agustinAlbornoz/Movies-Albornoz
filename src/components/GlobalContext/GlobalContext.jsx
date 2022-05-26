@@ -69,6 +69,7 @@ const GlobalProvider = ({ children }) => {
 
 
 
+
     return (
         <GlobalContext.Provider value={{ total, carrito, addToCard, deleteMovie, cartDeleteAll,trailer }}>
             {children}

@@ -15,7 +15,7 @@ const SearchCategory = () => {
             try{
             const data = await getDocs(col)
             const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
-            const searchMovie = result.find((Movies) => Movies.genre.toString().toLowerCase() === id.toString().toLowerCase()  )
+            const searchMovie = result.find((Movies) => Movies.genre.toString() === id.toString()  )
             setMovies(searchMovie)
             
             console.log(id)

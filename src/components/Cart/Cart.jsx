@@ -1,53 +1,181 @@
-import React, { useContext } from 'react'
+import { addDoc, collection } from 'firebase/firestore'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { db } from '../../service/firebase'
+
 import { GlobalContext } from '../GlobalContext/GlobalContext'
 
 const Cart = () => {
+
   const { carrito, deleteMovie, cartDeleteAll, total } = useContext(GlobalContext)
 
-  console.log(carrito)
+
+
+  const inicitalStateValues = {
+    buyer: {
+      email: "",
+      name: "",
+      lastName: "",
+      cellphone: ""
+    },
+    total: total,
+    items: carrito,
+  };
+
+  const [form, setForm] = useState({
+    buyer: {
+      email: "",
+      name: "",
+      lastName: "",
+      cellphone: ""
+    },
+    total: total,
+    items: carrito,
+  });
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    fetchGenerateTicket(form);
+    setForm({ ...inicitalStateValues })
+    cartDeleteAll()
+  };
+
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      buyer: {
+        ...form.buyer,
+        [name]: value,
+      }
+    })
+  };
+
+
+  const fetchGenerateTicket = async (form) => {
+
+    try {
+      const col = collection(db, 'ticket');
+      const order = await addDoc(col, form)
+      Swal.fire({
+        title: "Genial!",
+        text: `Su orden de compra se genero correctamente, tu codigo de compra es: ${order.id}`,
+        icon: "success",
+      })
+
+      console.log(order.id)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+
+
 
   return (
-    <div style={{ backgroundColor: 'black' }}>
+    <div className="cart"  style={{ backgroundColor: 'black' }}>
       <>
-        {carrito.length > 0 ? <h1>El total de tu compra es de total price: {total} y tenes un total de {carrito.length} productos</h1> : <h1>No hay productos</h1>}
+        {carrito.length > 0 ? <>
+          <div className="forms">
+          <form onSubmit={handleSubmit} className="container border">
 
+            <h3 className="text-uppercase text-center my-4">Datos personales</h3>
 
-        {carrito.length > 0 ? carrito.map((item, index) => {
-          return (
-            <>
-              <div className="cartCard">
-                <div className=" d-md-flex align-items-center gap-5">
-                  <img src={item.poster_path} alt={item.title} />
-                  <div className="textCart">
-                    <h2>{item.title}</h2>
-                    <h4>Cantidad:{item.cantidad}</h4>
-                    <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>borrar pelicula</button>
-                  </div>
-                </div>
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                type="text"
+                className="mb-3"
+                placeholder="Nombre"
+                name="name"
+                value={form.buyer.name} />
+            </div>
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                type="text"
+                className="mb-3"
+                placeholder="Apellido"
+                name="lastName"
+                value={form.buyer.lastName} />
+            </div>
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                type="email"
+                className="mb-3"
+                placeholder="Email"
+                name="email"
+                value={form.buyer.email} />
+            </div>
+            <div className="form-group">
+              <input
+                onChange={handleInputChange}
+                type="text"
+                className="mb-3"
+                placeholder="Numero de telefono"
+                name="cellphone"
+                value={form.buyer.cellphone} />
+            </div>
+            <div className="border row d-flex px-2">
+              <div className="col-12 col-lg-9">
+                <p className="fs-4 text-uppercase">total</p>
               </div>
-
-
-
-            </>
-          )
-
-        },
-        )
-
-          :
-          <div className="cartEmpty">
-
-            <h1>carrito esta vacio</h1>
-            <h1>Si desea comenzar compra<Link to={'/'}> Click aqui</Link> </h1>
+              <div className="col-12 col-lg-3">
+                <p className="fs-4">${total}</p>
+              </div>
+              <button type="submit" className="btn btn-primary text-uppercase w-100 my-4"> Terminar compra</button>
+            </div>
+          </form>
           </div>
 
-        }
-        <button className="btn btn-danger" onClick={() => cartDeleteAll(carrito)}>Borrar lista de compra</button>
+        </>
+      :
+      <h1>No hay productos</h1>}
+      {carrito.length > 0 ? carrito.map((item, index) => {
+        return (
+          <>
+            <div className="cartCard">
+              <div className="d-md-flex align-items-center gap-5">
+                <img src={item.poster_path} alt={item.title} />
+                <div className="textCart">
+                  <h2>{item.title}</h2>
+                  <h4>Cantidad:{item.cantidad}</h4>
+                  <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>borrar pelicula</button>
+                  </div>
+              
+              </div>
+            </div>
+            
 
-      </>
 
-    </div>
+
+          </>
+        )
+
+      },
+      )
+
+        :
+        <div className="cartEmpty">
+
+          <h1>carrito esta vacio</h1>
+          <h1>Si desea comenzar compra<Link to={'/'}> Click aqui</Link> </h1>
+        </div>
+
+      }
+
+    </>
+
+    </div >
 
 
   )
