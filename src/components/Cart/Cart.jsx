@@ -90,6 +90,7 @@ const Cart = () => {
             <h3 className="text-uppercase text-center my-4">Datos personales</h3>
 
             <div className="form-group">
+              <h5>Nombre</h5>
               <input
                 onChange={handleInputChange}
                 type="text"
@@ -99,6 +100,7 @@ const Cart = () => {
                 value={form.buyer.name} />
             </div>
             <div className="form-group">
+            <h5>Apellido</h5>
               <input
                 onChange={handleInputChange}
                 type="text"
@@ -108,6 +110,7 @@ const Cart = () => {
                 value={form.buyer.lastName} />
             </div>
             <div className="form-group">
+            <h5>Email</h5>
               <input
                 onChange={handleInputChange}
                 type="email"
@@ -117,6 +120,7 @@ const Cart = () => {
                 value={form.buyer.email} />
             </div>
             <div className="form-group">
+            <h5>Telefono</h5>
               <input
                 onChange={handleInputChange}
                 type="text"
@@ -140,30 +144,33 @@ const Cart = () => {
         </>
       :
       <h1>No hay productos</h1>}
+
+      
+      <ul className="containerMoviesCart">
       {carrito.length > 0 ? carrito.map((item, index) => {
         return (
+          
           <>
-            <div className="cartCard">
-              <div className="d-md-flex align-items-center gap-5">
-                <img src={item.poster_path} alt={item.title} />
-                <div className="textCart">
-                  <h2>{item.title}</h2>
-                  <h4>Cantidad:{item.cantidad}</h4>
-                  <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>borrar pelicula</button>
+          
+          <li className="listItem">
+            
+                <div className="cartCard">
+                  <img src={item.poster_path} alt={item.title} />
+
+                  <h2>{item.title} (x{item.cantidad})-${item.price * item.cantidad}</h2>
+                  <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>🗑</button>
                   </div>
               
-              </div>
-            </div>
+              
+            </li>
             
-
-
-
           </>
         )
 
       },
+      
       )
-
+      
         :
         <div className="cartEmpty">
 
@@ -172,12 +179,14 @@ const Cart = () => {
         </div>
 
       }
+      </ul>
+
 
     </>
 
     </div >
 
-
+    
   )
 
 }

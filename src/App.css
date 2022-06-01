@@ -45,20 +45,6 @@
     height: 40%;
 }
 
-.cartCard {
-
-    color: white;
-    background-color: Black;
-    height: 400px;
-    width: 50%
-}
-
-.cartCard img {
-    height: 400px;
-    width: auto;
-
-
-}
 
 .itemCount {
     align-items: center;
@@ -70,10 +56,54 @@
 
 }
 
-.cart{
+.cart {
     width: 100%;
-    height: auto;
-
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5%;
+}
+
+.forms {
+    display: inline-block;
+    padding-bottom: 15px;
+    color: whitesmoke;
+
+}
+.textCart{
+    display:inline-flex;
+    height:80%;
+    width:100%;
+    margin-left: 15%;
+    margin-right: 50px;
+
+}
+.cartCard img{
+    margin-right:30px;
+    width: 10%;
+    height: 10%;
+}
+.cartCard button{
+    margin-left: 3%;
+}
+.listItem{
+    height:50%;
+    width: 80%;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+.containerMoviesCart{
+    height:500px;
+    overflow: auto;
+}
+.footer{
+    background: black;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.iconCart{
+    text-align: center;
+    font-size: 120%;
+    
 }

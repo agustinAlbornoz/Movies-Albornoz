@@ -15,12 +15,6 @@ export default function Navbar() {
                 </button>
                 <div id="menuNavegacion" className="collapse navbar-collapse">
                     <ul className="navbar-nav mx-auto">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Peliculas</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Series</a>
-                        </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Generos
@@ -40,14 +34,14 @@ export default function Navbar() {
                             
                         </li>
                     </ul>
-                    <form className="d-flex mx-2">
-                        <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
+
                 </div>
+                    <div className="iconCart">
                     <CartNumber cartNumber={carrito.length} >
                         <CartWidget/>
                     </CartNumber>
+                    </div>
+                    
             </div>
 
         </nav>
