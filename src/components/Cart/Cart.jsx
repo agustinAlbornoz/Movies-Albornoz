@@ -81,112 +81,112 @@ const Cart = () => {
 
 
   return (
-    <div className="cart"  style={{ backgroundColor: 'black' }}>
+    <div className="cart" style={{ backgroundColor: 'black' }}>
       <>
         {carrito.length > 0 ? <>
           <div className="forms">
-          <form onSubmit={handleSubmit} className="container border">
+            <form onSubmit={handleSubmit} className="container border">
 
-            <h3 className="text-uppercase text-center my-4">Datos personales</h3>
+              <h3 className="text-uppercase text-center my-4">Datos personales</h3>
 
-            <div className="form-group">
-              <h5>Nombre</h5>
-              <input
-                onChange={handleInputChange}
-                type="text"
-                className="mb-3"
-                placeholder="Nombre"
-                name="name"
-                value={form.buyer.name} />
-            </div>
-            <div className="form-group">
-            <h5>Apellido</h5>
-              <input
-                onChange={handleInputChange}
-                type="text"
-                className="mb-3"
-                placeholder="Apellido"
-                name="lastName"
-                value={form.buyer.lastName} />
-            </div>
-            <div className="form-group">
-            <h5>Email</h5>
-              <input
-                onChange={handleInputChange}
-                type="email"
-                className="mb-3"
-                placeholder="Email"
-                name="email"
-                value={form.buyer.email} />
-            </div>
-            <div className="form-group">
-            <h5>Telefono</h5>
-              <input
-                onChange={handleInputChange}
-                type="text"
-                className="mb-3"
-                placeholder="Numero de telefono"
-                name="cellphone"
-                value={form.buyer.cellphone} />
-            </div>
-            <div className="border row d-flex px-2">
-              <div className="col-12 col-lg-9">
-                <p className="fs-4 text-uppercase">total</p>
+              <div className="form-group">
+                <h5>Nombre</h5>
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  className="mb-3"
+                  placeholder="Nombre"
+                  name="name"
+                  value={form.buyer.name} />
               </div>
-              <div className="col-12 col-lg-3">
-                <p className="fs-4">${total}</p>
+              <div className="form-group">
+                <h5>Apellido</h5>
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  className="mb-3"
+                  placeholder="Apellido"
+                  name="lastName"
+                  value={form.buyer.lastName} />
               </div>
-              <button type="submit" className="btn btn-primary text-uppercase w-100 my-4"> Terminar compra</button>
-            </div>
-          </form>
+              <div className="form-group">
+                <h5>Email</h5>
+                <input
+                  onChange={handleInputChange}
+                  type="email"
+                  className="mb-3"
+                  placeholder="Email"
+                  name="email"
+                  value={form.buyer.email} />
+              </div>
+              <div className="form-group">
+                <h5>Telefono</h5>
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  className="mb-3"
+                  placeholder="Numero de telefono"
+                  name="cellphone"
+                  value={form.buyer.cellphone} />
+              </div>
+              <div className="border row d-flex px-2">
+                <div className="col-12 col-lg-9">
+                  <p className="fs-4 text-uppercase">total</p>
+                </div>
+                <div className="col-12 col-lg-3">
+                  <p className="fs-4">${total}</p>
+                </div>
+                <button type="submit" className="btn btn-primary text-uppercase w-100 my-4"> Terminar compra</button>
+              </div>
+            </form>
           </div>
 
         </>
-      :
-      <div></div>}
+          :
+          <div></div>}
 
-      
-      <ul className="containerMoviesCart">
-      {carrito.length > 0 ? carrito.map((item, index) => {
-        return (
-          
-          <>
-          
-          <li className="listItem">
-            
-                <div className="cartCard">
-                  <img src={item.poster_path} alt={item.title} />
 
-                  <h2>{item.title} (X{item.cantidad})-${item.price * item.cantidad}</h2>
-                  <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>🗑</button>
+        <ul className="containerMoviesCart">
+          {carrito.length > 0 ? carrito.map((item, index) => {
+            return (
+
+              <>
+
+                <li className="listItem">
+
+                  <div className="cartCard">
+                    <img src={item.poster_path} alt={item.title} />
+
+                    <h2>{item.title} (X{item.cantidad})-${item.price * item.cantidad}</h2>
+                    <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>🗑</button>
                   </div>
-              
-              
-            </li>
-            
-          </>
-        )
-
-      },
-      
-      )
-      
-        :
-        <div className="cartEmpty">
-
-          <h1>carrito esta vacio</h1>
-          <h1>Si desea comenzar compra<Link to={'/'}> Click aqui</Link> </h1>
-        </div>
-
-      }
-      </ul>
 
 
-    </>
+                </li>
+
+              </>
+            )
+
+          },
+
+          )
+
+            :
+            <div className="cartEmpty">
+
+              <h1>carrito esta vacio</h1>
+              <h1>Si desea comenzar compra<Link to={'/'}> Click aqui</Link> </h1>
+            </div>
+
+          }
+        </ul>
+
+
+      </>
 
     </div >
 
-    
+
   )
 
 }

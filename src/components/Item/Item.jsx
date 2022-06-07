@@ -8,7 +8,7 @@ const Item = ({ movies }) => {
     console.log(movies)
     return (
         <>
-            <div className="itemCard " classID="itemCard" >
+            <div className="itemCard" classID="itemCard" >
                 <div className="row">
                     <div className="col-12-md" >
                         <div className={`card bg-black`} >
@@ -18,8 +18,6 @@ const Item = ({ movies }) => {
                                 <div className="verMas">
                                     <Link to={`/movies/${id}`} className="btn btn-warning">Ver mas</Link>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

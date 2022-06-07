@@ -44,17 +44,17 @@ const GlobalProvider = ({ children }) => {
         }
     }
     const trailer = (movie) => {
-            Swal.fire({
-                title: `${movie.title}`,
-                html:
-                    `<iframe width="1280" height="720" src=${movie.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-                showCloseButton: true,
-                confirmButtonText: 'Cerrar',
-                width: '80%',
-                showCancelButton: false,
-                focusConfirm: false,
-            })
-        }
+        Swal.fire({
+            title: `${movie.title}`,
+            html:
+                `<iframe width="1280" height="720" src=${movie.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+            showCloseButton: true,
+            confirmButtonText: 'Cerrar',
+            width: '80%',
+            showCancelButton: false,
+            focusConfirm: false,
+        })
+    }
 
 
     const deleteMovie = (id) => {
@@ -71,7 +71,7 @@ const GlobalProvider = ({ children }) => {
 
 
     return (
-        <GlobalContext.Provider value={{ total, carrito, addToCard, deleteMovie, cartDeleteAll,trailer }}>
+        <GlobalContext.Provider value={{ total, carrito, addToCard, deleteMovie, cartDeleteAll, trailer }}>
             {children}
         </GlobalContext.Provider>
     )
