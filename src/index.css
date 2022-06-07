@@ -14,11 +14,4 @@ code {
 #itemCard{
   display: inline-block;
 }
-.cartCard{
-  display:flex;
-  align-items: center;
-  }
-  .forms{
-  display:flex;
-  align-items: center;
-  }
+

@@ -43,9 +43,8 @@ const ItemDetailCard = ({ movie }) => {
             <div className="itemDetailCard" style={{ backgroundImage: `url(${backdrop_path})`, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", backgroundSize: "cover" }}>
                 <div className=" d-md-flex align-items-center gap-5" >
 
-
-                    <img src={`${poster_path}`} alt={title} />
-
+                
+                    <img className="imgPath" src={`${poster_path}`} alt={title} />
 
                     <div className="contentDetail">
                         <div>
@@ -60,7 +59,7 @@ const ItemDetailCard = ({ movie }) => {
                                 <>
                                     <div className="buttonsDetailCard">
                                         <Link to={'/cart'} onClick={() => addToCard(itemCart)} ><p className="btn btn-danger">Terminar Compra</p></Link>
-                                        <Link to={'/'}><p className="btn btn-success">Seguir Comprando</p></Link>
+                                        <Link to={'/'} onClick={() => addToCard(itemCart)} ><p className="btn btn-success">Seguir Comprando</p></Link>
 
                                     </div>
 

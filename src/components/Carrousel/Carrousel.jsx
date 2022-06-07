@@ -13,7 +13,6 @@ const Carrousel = ({ moviesCarrousel }) => {
                 <div class={`carousel-item ${index === 0 && 'active'}`} key={index}>
                     <img src={`${imagePath}${movie.backdrop_path}`} className="w-100" alt={movie.title} />
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>{movie.title}</h5>
                     </div>
                 </div>
             )

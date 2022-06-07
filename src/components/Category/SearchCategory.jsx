@@ -26,7 +26,7 @@ const SearchCategory = () => {
         useEffect(() => {
             getData()
 
-        }, [id])
+        }, [])
         
         console.log(movies)
     return (

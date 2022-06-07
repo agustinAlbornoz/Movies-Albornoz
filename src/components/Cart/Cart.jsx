@@ -143,7 +143,7 @@ const Cart = () => {
 
         </>
       :
-      <h1>No hay productos</h1>}
+      <div></div>}
 
       
       <ul className="containerMoviesCart">
@@ -157,7 +157,7 @@ const Cart = () => {
                 <div className="cartCard">
                   <img src={item.poster_path} alt={item.title} />
 
-                  <h2>{item.title} (x{item.cantidad})-${item.price * item.cantidad}</h2>
+                  <h2>{item.title} (X{item.cantidad})-${item.price * item.cantidad}</h2>
                   <button className="btn btn-warning" onClick={() => deleteMovie(item.id)}>🗑</button>
                   </div>
               
