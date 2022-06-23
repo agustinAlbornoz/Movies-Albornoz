@@ -3,14 +3,16 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { db } from '../../service/firebase'
-
 import { GlobalContext } from '../GlobalContext/GlobalContext'
 
 const Cart = () => {
 
   const { carrito, deleteMovie, cartDeleteAll, total } = useContext(GlobalContext)
+  const [error, setError] = useState({});
 
-
+  const validarTodoLLeno = (campos) => {
+    return campos.some((campo) => campo === "")
+  };
 
   const inicitalStateValues = {
     buyer: {
@@ -34,13 +36,26 @@ const Cart = () => {
     items: carrito,
   });
 
+  const {
+    buyer: { email, name, lastName, cellphone },
+  } = form;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    fetchGenerateTicket(form);
-    setForm({ ...inicitalStateValues })
-    cartDeleteAll()
+    if (validarTodoLLeno([email, name, lastName, cellphone])) {
+      Swal.fire({
+        title: "Oops!",
+        text: "Faltan campos por completar",
+        icon: "error",
+      });
+      return;
+    } else {
+      fetchGenerateTicket(form);
+      setForm({ ...inicitalStateValues })
+      cartDeleteAll()
+    }
+
   };
 
 

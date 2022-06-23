@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import {Data} from '../Data/Data'
+import { Data } from '../Data/Data'
 import Carrousel from './Carrousel';
 
 
@@ -11,7 +11,7 @@ const CarrouselContainer = () => {
         const promesa = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Data)
-            }, );
+            });
         })
         promesa.then((res) => {
             setMovies(res)

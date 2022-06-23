@@ -6,7 +6,7 @@ import { GlobalContext } from '../GlobalContext/GlobalContext';
 
 
 const ItemDetailCard = ({ movie }) => {
-    console.log(movie)
+    
     const { title, overview, poster_path, price, genre, stock, id, backdrop_path, release_date } = movie
 
 
@@ -15,7 +15,9 @@ const ItemDetailCard = ({ movie }) => {
 
     }, [title])
 
-
+    const verificarCart = (carrito,itemCart) => {
+        return carrito.some((a)=> a.id === itemCart.id)
+    }
 
     const { carrito, addToCard, trailer } = useContext(GlobalContext)
 
@@ -26,7 +28,6 @@ const ItemDetailCard = ({ movie }) => {
     const cantidadParaAgregar = (cantidad) => {
         setCantidadComprada(cantidad)
         carrito.cantidad = cantidadParaAgregar
-        console.log(carrito.cantidad)
     }
     const itemCart = {
         id: id,
@@ -43,7 +44,7 @@ const ItemDetailCard = ({ movie }) => {
             <div className="itemDetailCard" style={{ backgroundImage: `url(${backdrop_path})`, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", backgroundSize: "cover" }}>
                 <div className=" d-md-flex align-items-center gap-5" >
 
-                
+
                     <img className="imgPath" src={`${poster_path}`} alt={title} />
 
                     <div className="contentDetail">
@@ -55,19 +56,20 @@ const ItemDetailCard = ({ movie }) => {
                             <h6>{`Stock: ${stock}`}</h6>
                             <p className="">{overview}</p>
                             <button className="btn btn-warning" onClick={() => trailer(movie)}> Trailer </button>
-                            {cantidadComprada > 0 ? (
-                                <>
-                                    <div className="buttonsDetailCard">
-                                        <Link to={'/cart'} onClick={() => addToCard(itemCart)} ><p className="btn btn-danger">Terminar Compra</p></Link>
-                                        <Link to={'/'} onClick={() => addToCard(itemCart)} ><p className="btn btn-success">Seguir Comprando</p></Link>
 
+                            {itemCart.cantidad > 0 ? (
+                                <>{addToCard(itemCart)}
+                                    <div className="buttonsDetailCard">
+                                        <Link to={'/cart'} ><p className="btn btn-danger">Terminar Compra</p></Link>
+                                        <Link to={'/'}  ><p className="btn btn-success">Seguir Comprando</p></Link>
+                                        
                                     </div>
 
                                 </>
                             ) : (
 
                                 <div className="itemCount">
-                                    <ItemCount manejarClick={cantidadParaAgregar} stock={stock - 1} />
+                                    <ItemCount manejarClick={cantidadParaAgregar} itemCart={itemCart} stock={stock - 1} />
                                 </div>
 
                             )

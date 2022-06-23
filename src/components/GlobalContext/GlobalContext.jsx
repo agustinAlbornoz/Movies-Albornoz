@@ -32,13 +32,14 @@ const GlobalProvider = ({ children }) => {
         setTotal(calculoTotal)
 
     }, [carrito])
+
     const addToCard = (movie) => {
         if (carrito.some(movieSnipe => movieSnipe.id === movie.id)) {
             Swal.fire({
-                icon: 'error',
-                title: 'error',
-                text: `ya agregaste ${movie.title} a tu carrito`
-            })
+                icon: 'success',
+                title: 'Gracias por comprar',
+                text: `Felicitaciones, agregaste ${movie.title} a tu carrito`
+            });
         } else {
             setCarrito([...carrito, movie])
         }

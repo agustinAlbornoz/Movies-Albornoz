@@ -3,9 +3,9 @@ import React from 'react'
 const Carrousel = ({ moviesCarrousel }) => {
 
     const imagePath = "https://image.tmdb.org/t/p/w500/"
-    
+
     const movies = moviesCarrousel.slice(0, 3)
-    
+
     return (
         <>
             {(movies.map((movie, index) => (
